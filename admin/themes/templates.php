@@ -32,8 +32,10 @@
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo">
-        <a  href="admin/index.php" class="simple-text logo-normal">
+        <a  href="#" class="simple-text logo-normal">
+          <img src="<?php echo web_root;?>img/wup1.png" height="30">
           ADMIN PANEL
+          <img src="<?php echo web_root;?>img/comscii.png" height="30">
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -71,15 +73,15 @@
           <li class="nav-item <?php echo (currentpage_admin() == 'course') ? "active" : false;?>">
             <a class="nav-link" href="<?php echo web_root; ?>admin/modules/course/index.php">
               <i class="material-icons">school</i>
-              <p>Courses</p>
+              <p>Courses & Strand</p>
             </a>
           </li>
-          <li class="nav-item <?php echo (currentpage_admin() == 'strand') ? "active" : false;?>">
+          <!--<li class="nav-item <?php echo (currentpage_admin() == 'strand') ? "active" : false;?>">
             <a class="nav-link" href="<?php echo web_root; ?>admin/modules/strand/index.php">
               <i class="material-icons">cast_for_education</i>
               <p>Strand</p>
             </a>
-          </li>  
+          </li> -->  
           <li class="nav-item <?php echo (currentpage_admin() == 'department') ? "active" : false;?>">
             <a class="nav-link" href="<?php echo web_root; ?>admin/modules/department/index.php">
               <i class="material-icons">domain</i>
@@ -135,7 +137,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="card"> 
-      <div class="col-md-12">
+      <div class="col-md-12 transparent">
         <?php  check_message(); ?> 
         <?php  require_once $content;?> 
       </div> 

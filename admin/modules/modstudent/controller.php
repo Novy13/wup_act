@@ -38,6 +38,8 @@ function doInsert(){
 						$student = New Student();
 						$student->IDNO          = $_POST['IDNO'];
 						$student->FNAME         = $_POST['FNAME'];
+						$student->MNAME         = $_POST['MNAME'];
+						$student->LNAME         = $_POST['LNAME'];
 						$student->DEPARTMENT    = $_POST['DEPARTMENT'];
 						$student->COURSE       	= $_POST['COURSE'];
 						$student->YLVL			= $_POST['YLVL'];

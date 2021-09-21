@@ -61,16 +61,24 @@
                       </div>
                     </div>
                   </div>
-
-
-   
- 
-                 
-
+                  <br>
             
              <div class="row"> 
                    <div class="col-md-11">
-                       <button class="btn btn-primary btn-round" name="save" type="submit" ><span class="fa fa-save fw-fa"></span>  Save</button>  
+
+                      <div class="col-md-11">
+                        <p> Filter Receivers</p>
+                        <input type="radio" id="JHS" name="dept" value="JHS">
+                          <label for="JHS">JHS</label><br>
+                        <input type="radio" id="JHS" name="dept" value="JHS">
+                          <label for="JHS">SHS</label><br>
+                         <input type="radio" id="JHS" name="dept" value="JHS">
+                          <label for="JHS">College</label><br>
+                        <input type="radio" id="JHS" name="dept" value="JHS">
+                          <label for="JHS">All</label><br>                       
+                      </div>
+                      <br>
+                       <button class="btn btn-primary btn-round" name="save" type="submit" ><span class="fa fa-save fw-fa"></span> Post</button>  
                   </div> 
                 </div>
         </form> 

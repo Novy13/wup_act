@@ -48,9 +48,9 @@
 
 
 <?php
-
+  $IDNO = FALSE;
   $q = isset($_GET['q']) ? $_GET['q'] : ""; 
-
+    $IDNO = FALSE;
     $IDNO = $_SESSION['IDNO']; 
     $sql = "SELECT * FROM tblstudentnotif WHERE IDNO = '{$IDNO}' AND TYPE='Event'";
     $mydb->setQuery($sql);

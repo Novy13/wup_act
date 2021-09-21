@@ -6,7 +6,7 @@
 ?>
     <div class="row">
       <div class="col-lg-12"> 
-            <h3>List of Courses <small>|  <label class="label label-xs" style="font-size: 12px"><a href="index.php?view=add">  <i class="fa fa-plus-circle fw-fa"></i> New</a></label> |</small></h3> 
+            <h3>List of Courses and Strand <small>| <label class="label label-xs" style="font-size: 12px"><a href="index.php?view=add">  <i class="fa fa-plus-circle fw-fa"></i> New</a></label> |</small></h3> 
        		 
        		</div>
         	<!-- /.col-lg-12 -->
@@ -18,7 +18,7 @@
 				  	<tr>
 				  		<th>No.</th>
 				  		<th> 
-				  		Course</th>
+				  		Course/Strand</th>
 				  		<th>Description</th>
 				  		<th width="10%">Action</th>
 				 

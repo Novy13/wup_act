@@ -29,11 +29,11 @@
 
 			  <tbody>
 				  	<?php 
-				  		$query = "SELECT * FROM tblstudent s";
+				  		$query = "SELECT * FROM tblstudent s, tblcourse c,tbldepartment d WHERE s.COURSE=c.COURSEID AND s.DEPARTMENT=d.DEPARTMENTID";
 
 				  		$mydb->setQuery($query);
 				  		$cur = $mydb->loadResultList();
-				  		echo var_dump($cur);
+				  		//echo var_dump($cur);
 						foreach ($cur as $result) {
 							
 				  		echo '<tr>'; 
@@ -41,8 +41,8 @@
 				  		echo '<td  width="13%"><input type="checkbox" name="selector[]" id="selector[]" value="'.$result->IDNO. '"/>'.$formatted = preg_replace("/^(\d{2})(\d{4})(\d{3})$/", "$1-$2-$3", $result->IDNO);'</td>';
 				  		//echo '<td  width="13%"><input type="checkbox" name="selector[]" id="selector[]" value="'.$result->IDNO. '"/>' .$result->IDNO .'</td>';
 				  		// echo '<td ><a href="index.php?view=view&id="><img src="'. $result->image.'" width="60" height="60" title="'.$result->LNAME.'"/></a></td>';
-				  		echo '<td>'. $result->FNAME.' </td>';
-				  		// echo '<td>'. $result->LASTNAME.'</td>';
+				  		echo '<td>'. $result->FNAME ." ".$result->MNAME." ".$result->LNAME. '</td>';
+				  		//echo '<td>'. $result->LNAME.'</td>';
 				  		// echo '<td>'. $result->CITYADDRESS.'</td>'; 
 				  		echo '<td>'. $result->DEPARTMENT.'</td>';
 				  		echo '<td>'. $result->COURSE.'</td>'; 

@@ -30,8 +30,9 @@
             <li class="list-group-item text-right">
             <span class="pull-left"><strong>Real name</strong></span> 
             <strong><?php echo $singlestudents->FNAME ; ?></strong>
+            <strong><?php echo $singlestudents->MNAME ; ?></strong>
+            <strong><?php echo $singlestudents->LNAME ; ?></strong>
             </li>
-            
           </ul> 
                
             
@@ -56,8 +57,16 @@
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-4">
                       <div class="form-group ">
-                      <strong>Department </strong>
-                      <?php echo ': '.$singlestudents->DEPARTMENT; ?>
+                      <strong>Department :  </strong>
+                      <?php
+                        $query = "SELECT * FROM tblstudent s, tbldepartment d WHERE  s.DEPARTMENT=d.DEPARTMENTID";
+                        $mydb->setQuery($query);
+                        $cur = $mydb->loadResultList();
+                        foreach ($cur as $result) {
+                        echo $result->DEPARTMENT; // Result from JOINING THE TABLE of DEPT & STUD
+                      }   
+
+                       ?> 
                       </div> 
                     </div> 
                </div>
@@ -66,7 +75,7 @@
                   <div class="row"> 
                    <div class="col-xs-12 col-sm-6 col-md-6">
                     <div class="form-group ">
-                      <strong>Year Level</strong>
+                      <strong>Year Level </strong>
                          <?php echo ': '.$singlestudents->YLVL; ?>
                      </div>
                     </div>
@@ -77,8 +86,15 @@
                   <div class="row"> 
                    <div class="col-xs-12 col-sm-6 col-md-6">
                     <div class="form-group ">
-                      <strong>COURSE / STRAND</strong>
-                         <?php echo ': '.$singlestudents->COURSE; ?>
+                      <strong>Course/Strand : </strong>
+                      <?php
+                        $query = "SELECT * FROM tblstudent s, tblcourse c WHERE s.COURSE=c.COURSEID";
+                        $mydb->setQuery($query);
+                        $cur = $mydb->loadResultList();
+                        foreach ($cur as $result) {
+                        echo $result->COURSE; // Result from JOINING THE TABLE of DEPT & STUD
+
+                        } ?> 
                      </div>
                     </div>
                   </div>  

@@ -40,6 +40,8 @@ class Student {
 		 $user_found = $mydb->loadSingleResult();
 		 	$_SESSION['IDNO']   		= $user_found->IDNO;
 		 	$_SESSION['FNAME']      	= $user_found->FNAME;
+		 	$_SESSION['MNAME']      	= $user_found->MNAME;
+		 	$_SESSION['LNAME']      	= $user_found->LNAME;
 		 	$_SESSION['USERNAME'] 		= $user_found->USERNAME;
 		 	$_SESSION['STUDPASS'] 		= $user_found->STUDPASS; 
 		   return true;

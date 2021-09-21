@@ -5,7 +5,8 @@ if(!isset($_SESSION['USERID'])){
 }
 
 $view = (isset($_GET['view']) && $_GET['view'] != '') ? $_GET['view'] : '';
-$title="Courses";
+
+$title="Courses and Strands"; 
 switch ($view) {
 	case 'list' :
 		$content    = 'list.php';		

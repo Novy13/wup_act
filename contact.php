@@ -1,36 +1,83 @@
-<style type="text/css">
-  
-  .center_div{
-    margin: 0 auto;
-    width:50%;
-}
-</style>
+<?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer/Exception.php';
+require 'PHPMailer/PHPMailer.php';
+require 'PHPMailer/SMTP.php';
+
+  $mail = new PHPMailer(true);
+
+  $output = '';
+
+  if (isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $subject = $_POST['subject'];
+    $message = $_POST['message'];
+
+    try {
+      $mail->isSMTP();
+      $mail->Host = 'smtp.gmail.com';
+      $mail->SMTPAuth = true;
+      // Gmail ID which you want to use as SMTP server
+      $mail->Username = 'jandelmarsh27@gmail.com';
+      // Gmail Password
+      $mail->Password = 'Jaonforever13@';
+      $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+      $mail->Port = 587;
+
+      // Email ID from which you want to send the email
+      $mail->setFrom('leesingod22@gmail.com','WUP');
+      // Recipient Email ID where you want to receive emails
+      $mail->addAddress('leesingod22@gmail.com');
+
+      $mail->isHTML(true);
+      $mail->Subject = $subject;
+      $mail->Body = "
+      <h3>Name : $name <br> From Email : $email <br>Message : $message</h3>";
+
+      $mail->send();
+      $output = '<div class="alert alert-success">
+                  <h5>Thankyou for contacting the support team, Well get back to you soon!</h5>
+                </div>';
+    } catch (Exception $e) {
+      $output = '<div class="alert alert-danger">
+                  <h5>' . $e->getMessage() . '</h5>
+                </div>';
+    }
+  }
+
+
+?>
+
+?>
 
 <div class="container center_div">
-      <div class="form">
-              <div id="sendmessage">Your message has been sent. Thank you!</div>
-              <div id="errormessage"></div>
-              <form action="" method="post" role="form" class="contactForm">
+      <div id="myForm" class="form">
+
+                <?= $output;
+                 ?>
+              <form action="" method="POST">
                 <div class="form-row">
                   <div class="form-group col-lg-6">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                    <div class="validation"></div>
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name" required>
                   </div>
                   <div class="form-group col-lg-6">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                    <div class="validation"></div>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Enter E-Mail" required>
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                  <div class="validation"></div>
+                   <input type="text" name="subject" id="subject" class="form-control" placeholder="Enter Subject"
+                  required>
                 </div>
                 <div class="form-group">
-                  <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                  <div class="validation"></div>
+                  <textarea name="message" id="message" rows="5" class="form-control" placeholder="Write Your Message"
+                  required></textarea>
                 </div>
-                <div class="text-center"><button type="submit" title="Send Message">Send Message</button></div>
+                <div class="text-center"><input type="submit" name="submit" value="Send" class="btn btn-success btn-block" id="sendBtn"></div>
               </form>
             </div>
           </div>
-        </div>
+

@@ -83,7 +83,7 @@ switch ($action) {
 
 		// echo  $singlestud;
 			 if($singlestud==1){
-					$student->STUDPASS = sha1($_POST['NEWSTUDPASS']);	 
+					$student->STUDPASS = $_POST['NEWSTUDPASS'];	 
 					$student->update($_SESSION['IDNO']);
 						message("Password has successfully changed.","success");
 						keyactive("basicInfo");	
@@ -100,14 +100,13 @@ switch ($action) {
 		 
 	}
 
- 
 function doupdateimage(){
  
  
 		$filename = UploadImage();
 		$location = "student_image/". $filename ;
 		$student = New Student();
-		$student->PROIMAGE 			= $location;
+		$student->PROIMAGE 	= $location;
 		$student->update($_SESSION['IDNO']);
 		redirect("index.php?view=view&id=".$_SESSION['IDNO']);
 			 
@@ -133,5 +132,6 @@ function UploadImage(){
 					exit;
 	 }
 } 
+ 
  
 ?>

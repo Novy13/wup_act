@@ -11,7 +11,7 @@
 
            <div class="row">
          <div class="col-lg-12">
-            <h3>New Course</h3>
+            <h3>New Course / Strand</h3>
           </div>
           <!-- /.col-lg-12 -->
        </div>
@@ -19,7 +19,7 @@
                   <div class="row">
                    <div class="col-md-11">
                     <div class="form-group">
-                     <label class="bmd-label-floating">Course:</label> 
+                     <label class="bmd-label-floating">Code:</label> 
                         <input name="deptid" type="hidden" value="">
                          <input class="form-control input-sm" id="COURSE" name="COURSE"  type="text" value="">
                       </div>

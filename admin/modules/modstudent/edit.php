@@ -37,10 +37,8 @@
             <h3>Edit Student</h3>
           </div>
           <!-- /.col-lg-12 -->
-       </div>
-                
-                         <input  id="IDNO" name="IDNO"  type="hidden" value="<?php echo $singlestudent->IDNO; ?>"> 
-               
+       </div>             
+          <input  id="IDNO" name="IDNO"  type="hidden" value="<?php echo $singlestudent->IDNO; ?>">
                 <div class="row">
                    <div class="col-md-11">
                     <div class="form-group">
@@ -49,6 +47,25 @@
                       </div>
                     </div>
                   </div>
+
+                  <div class="row">
+                   <div class="col-md-11">
+                    <div class="form-group">
+                     <label class="bmd-label-floating">Middle Name:</label> 
+                         <input class="form-control input-sm" id="MNAME" name="MNAME"   type="text" value="<?php echo $singlestudent->MNAME; ?>" required>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                   <div class="col-md-11">
+                    <div class="form-group">
+                     <label class="bmd-label-floating">Last Name:</label> 
+                         <input class="form-control input-sm" id="LNAME" name="LNAME"   type="text" value="<?php echo $singlestudent->LNAME; ?>" required>
+                      </div>
+                    </div>
+                  </div>
+
                   <div class="row">
                    <div class="col-md-11">
                     <div class="form-group">

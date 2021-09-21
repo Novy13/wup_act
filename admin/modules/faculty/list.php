@@ -41,7 +41,7 @@
 				  		echo '<td  width="13%"><input type="checkbox" name="selector[]" id="selector[]" value="'.$result->IDNO. '"/>'  .$formatted = preg_replace("/^(\d{2})(\d{4})(\d{3})$/", "$1-$2-$3", $result->IDNO);'</td>';
 
 				  		// echo '<td ><a href="index.php?view=view&id="><img src="'. $result->image.'" width="60" height="60" title="'.$result->LNAME.'"/></a></td>';
-				  		echo '<td>'. $result->FNAME.'</td>';
+				  		echo '<td>'. $result->FNAME." ".$result->LNAME.'</td>';
 				  		// echo '<td>'. $result->LASTNAME.'</td>';
 				  		// echo '<td>'. $result->CITYADDRESS.'</td>'; 
 				  		//echo '<td>'.$result->DESCRIPTION . '</td>'; 

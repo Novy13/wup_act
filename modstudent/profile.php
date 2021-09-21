@@ -22,14 +22,14 @@
         <div class="col-lg-3"><!--left col-->
            <div class="panel panel-default">            
             <div class="panel-body">
-             <a href="" data-target="#myModal"  data-toggle="modal" > <p>Upload New Profile Photo</p>
             <img title="Click to Upload" width="230" height="210" src="<?php echo web_root.'admin/modules/modstudent/'.$singlestudent->PROIMAGE; ?>">
+            <br><br>
+            <center>
+            <a href="" data-target="#myModal" data-toggle="modal" ><p><small>Upload New Profile Photo</small></p>
             </a>
+          </center>
              </div>
           <ul class="list-group">
-       
-            <br>
-
             <li class="list-group-item text-muted"><strong>Student Information</strong></li>
              <li class="list-group-item text-right">
               <span class="pull-left"><strong>Student ID</strong></span>
@@ -39,13 +39,44 @@
             <li class="list-group-item text-right">
               <span class="pull-left"><strong>Real Name</strong></span>
               <br> 
-             <?php echo $singlestudent->FNAME; ?> 
+             <?php echo $singlestudent->FNAME ." ". $singlestudent->MNAME ." ". $singlestudent->LNAME; ?> 
              </li>
 
               <li class="list-group-item text-right">
               <span class="pull-left"><strong>Department</strong></span>
               <br> 
-             <?php echo $singlestudent->DEPARTMENT; ?> 
+
+             <?php
+
+              $query = "SELECT * FROM tblstudent s, tbldepartment d WHERE  s.DEPARTMENT=d.DEPARTMENTID LIMIT 1";
+
+              $mydb->setQuery($query);
+              $cur = $mydb->loadResultList();
+              
+               foreach ($cur as $result) {
+
+              echo $result->DEPARTMENT; // Result from JOINING THE TABLE of DEPT & STUD
+
+               }   
+
+               ?> 
+             </li>
+
+              <li class="list-group-item text-right">
+              <span class="pull-left"><strong>Course/Strand</strong></span>
+              <br> 
+              
+             <?php
+
+              $query = "SELECT * FROM tblstudent s, tblcourse c WHERE s.COURSE=c.COURSEID LIMIT 1";
+
+              $mydb->setQuery($query);
+              $cur = $mydb->loadResultList();
+              foreach ($cur as $result) {
+
+              echo $result->COURSE; // Result from JOINING THE TABLE of COURSE & STUD
+
+              } ?> 
              </li>
 
               <li class="list-group-item text-right">

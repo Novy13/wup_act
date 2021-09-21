@@ -77,7 +77,7 @@ switch ($action) {
 				$contact = '+63'.substr($result->PHONE, 1);
 			 	# code...
 			 	$query = "INSERT INTO `messageout` (`Id`, `MessageTo`, `MessageFrom`, `MessageText`) 
-			 	VALUES (Null, '".$contact."','Admin','You have Announcement notification from WUP-MA - ".$ANNOUNCEMENT_TEXT." - ".strip_tags($ANNOUNCEMENT_WHAT)." on ".strip_tags($ANNOUNCEMENT_WHEN)." @ ".strip_tags($ANNOUNCEMENT_WHERE)."')";
+			 	VALUES (Null, '".$contact."','Admin','You have an Announcement notification from WUP-Maria.  <br> Title:  ".$ANNOUNCEMENT_TEXT." <br> What:".strip_tags($ANNOUNCEMENT_WHAT)." <br> When: ".strip_tags($ANNOUNCEMENT_WHEN)."<br> Where: ".strip_tags($ANNOUNCEMENT_WHERE)."')";
 		        $mydb->setQuery($query); 
 
 
@@ -93,7 +93,7 @@ switch ($action) {
  
 				$contact = '+63'.substr($result1->PHONE, 1);
 				$query = "INSERT INTO `messageout` (`Id`, `MessageTo`, `MessageFrom`, `MessageText`) 
-			 	VALUES (Null, '".$contact."','Admin','You have Announcement notification from WUP-MA - ".$ANNOUNCEMENT_TEXT." - ".strip_tags($ANNOUNCEMENT_WHAT)." on ".strip_tags($ANNOUNCEMENT_WHEN)." @ ".strip_tags($ANNOUNCEMENT_WHERE)."')";
+			 	VALUES (Null, '".$contact."','Admin','You have an Announcement notification from WUP-Maria.  <br> Title:  ".$ANNOUNCEMENT_TEXT." <br> What:".strip_tags($ANNOUNCEMENT_WHAT)." <br> When: ".strip_tags($ANNOUNCEMENT_WHEN)."<br> Where: ".strip_tags($ANNOUNCEMENT_WHERE)."')";
 		        $mydb->setQuery($query);
 
 			}

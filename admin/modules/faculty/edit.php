@@ -44,8 +44,24 @@
                 <div class="row">
                    <div class="col-md-11">
                     <div class="form-group">
-                     <label class="bmd-label-floating">Full Name:</label> 
+                     <label class="bmd-label-floating">First Name:</label> 
                          <input class="form-control input-sm" id="FNAME" name="FNAME"   type="text" value="<?php echo $singlefaculty->FNAME; ?>" required>
+                      </div>
+                    </div>
+                  </div>
+                    <div class="row">
+                   <div class="col-md-11">
+                    <div class="form-group">
+                     <label class="bmd-label-floating">Middle Name:</label> 
+                         <input class="form-control input-sm" id="MNAME" name="MNAME"   type="text" value="<?php echo $singlefaculty->MNAME; ?>" required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                   <div class="col-md-11">
+                    <div class="form-group">
+                     <label class="bmd-label-floating">Last Name:</label> 
+                         <input class="form-control input-sm" id="LNAME" name="LNAME"   type="text" value="<?php echo $singlefaculty->LNAME; ?>" required>
                       </div>
                     </div>
                   </div>

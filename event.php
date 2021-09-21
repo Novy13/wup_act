@@ -16,10 +16,10 @@
               <p class="description">
                   <p>What : <?php echo $result->BLOG_WHAT; ?></p>
                   <p>WHERE : <?php echo $result->BLOG_WHERE; ?></p> 
-                  <p>WHEN : <?php echo $result->BLOG_WHEN; ?></p>  
+                  <p>WHEN : <?php echo  dateFormat($result->BLOG_WHEN," M d Y , h:i a"); ?></p>  
                  </p>
               <p>
-                <span class="fa fa-calendar"></span> Posted on  <?php echo  dateFormat($result->DATEPOSTED,"d M Y h:i a"); ?>
+                <span class="fa fa-calendar"></span> Posted on  <?php echo  dateFormat($result->DATEPOSTED,"d M Y , h:i a"); ?>
               </p>
             </div>
           </div>

@@ -79,7 +79,7 @@ switch ($action) {
 				$contact = '+63'.substr($result->PHONE, 1);
 				# code...
 				$query = "INSERT INTO `messageout` (`Id`, `MessageTo`, `MessageFrom`, `MessageText`) 
-				VALUES (Null, '".$contact."','Admin','You have Event notification from WUP-MA - ".$EVENT_TEXT." - ".strip_tags($EVENT_WHAT)." on ".strip_tags($EVENT_WHEN)." @ ".strip_tags($EVENT_WHERE)."')";
+				VALUES (Null, '".$contact."','Admin','You have an Event notification from WUP-Maria. <br>Title: ".$EVENT_TEXT." <br>What: ".strip_tags($EVENT_WHAT)." <br>When: ".strip_tags($EVENT_WHEN)." <br>When: ".strip_tags($EVENT_WHERE)."')";
 				$mydb->setQuery($query);
 				//$mydb->executeQuery(); 
 
@@ -96,7 +96,7 @@ switch ($action) {
  
 				$contact = '+63'.substr($result1->PHONE, 1);
 				$query = "INSERT INTO `messageout` (`Id`, `MessageTo`, `MessageFrom`, `MessageText`) 
-				VALUES (Null, '".$contact."','Admin','You have Event notification from WUP-MA - ".$EVENT_TEXT." - ".strip_tags($EVENT_WHAT)." on ".strip_tags($EVENT_WHEN)." @ ".strip_tags($EVENT_WHERE)."')";
+				VALUES (Null, '".$contact."','Admin','You have an Event notification from WUP-Maria. <br>Title: ".$EVENT_TEXT." <br>What: ".strip_tags($EVENT_WHAT)." <br>When: ".strip_tags($EVENT_WHEN)." <br>When: ".strip_tags($EVENT_WHERE)."')";
 				$mydb->setQuery($query);
 
 		    }

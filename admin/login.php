@@ -188,7 +188,9 @@ if(isset($_POST['btnLogin'])){
            redirect(web_root."admin/login.php");
       }
     }else{
-      message("Account does not exist! Please contact Administrator.", "error");
+        echo '<script language="javascript" type="text/javascript"> 
+      alert("Admin Log-In Error. Please Try Again");
+      </script>';
        redirect(web_root."admin/login.php");
     }
  }

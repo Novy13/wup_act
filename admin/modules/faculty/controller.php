@@ -38,6 +38,8 @@ function doInsert(){
 						$faculty = New Faculty();
 						$faculty->IDNO          = $_POST['IDNO'];
 						$faculty->FNAME         = $_POST['FNAME'];
+						$faculty->MNAME         = $_POST['MNAME'];
+						$faculty->LNAME         = $_POST['LNAME'];
 						$faculty->PHONE         = $_POST['PHONE']; 
 						$faculty->DEPARTMENT    = $_POST['DEPARTMENT']; 
 						$faculty->USERID      	= $_POST['USERID'];
@@ -60,6 +62,8 @@ function doInsert(){
 			
 			$faculty = New Faculty(); 
 			$faculty->FNAME         = $_POST['FNAME'];
+			$faculty->MNAME         = $_POST['MNAME'];
+			$faculty->LNAME         = $_POST['LNAME'];
 			$faculty->PHONE         = $_POST['PHONE'];
 			$faculty->DEPARTMENT    = $_POST['DEPARTMENT']; 
 			$faculty->update($_POST['IDNO']);
