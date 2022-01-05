@@ -12,9 +12,55 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+
+-- Dumping database structure for db_wup
+CREATE DATABASE IF NOT EXISTS `db_wup` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `db_wup`;
+
+-- Dumping structure for table db_wup.messagein
+CREATE TABLE IF NOT EXISTS `messagein` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `SendTime` datetime DEFAULT NULL,
+  `ReceiveTime` datetime DEFAULT NULL,
+  `MessageFrom` varchar(80) DEFAULT NULL,
+  `MessageTo` varchar(80) DEFAULT NULL,
+  `SMSC` varchar(80) DEFAULT NULL,
+  `MessageText` text,
+  `MessageType` varchar(80) DEFAULT NULL,
+  `MessageParts` int(11) DEFAULT NULL,
+  `MessagePDU` text,
+  `Gateway` varchar(80) DEFAULT NULL,
+  `UserId` varchar(80) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- Dumping data for table db_wup.messagein: ~0 rows (approximately)
 /*!40000 ALTER TABLE `messagein` DISABLE KEYS */;
 /*!40000 ALTER TABLE `messagein` ENABLE KEYS */;
+
+-- Dumping structure for table db_wup.messagelog
+CREATE TABLE IF NOT EXISTS `messagelog` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `SendTime` datetime DEFAULT NULL,
+  `ReceiveTime` datetime DEFAULT NULL,
+  `StatusCode` int(11) DEFAULT NULL,
+  `StatusText` varchar(80) DEFAULT NULL,
+  `MessageTo` varchar(80) DEFAULT NULL,
+  `MessageFrom` varchar(80) DEFAULT NULL,
+  `MessageText` text,
+  `MessageType` varchar(80) DEFAULT NULL,
+  `MessageId` varchar(80) DEFAULT NULL,
+  `ErrorCode` varchar(80) DEFAULT NULL,
+  `ErrorText` text,
+  `Gateway` varchar(80) DEFAULT NULL,
+  `MessageParts` int(11) DEFAULT NULL,
+  `MessagePDU` text,
+  `Connector` varchar(80) DEFAULT NULL,
+  `UserId` varchar(80) DEFAULT NULL,
+  `UserInfo` text,
+  PRIMARY KEY (`Id`),
+  KEY `IDX_MessageId` (`MessageId`,`SendTime`)
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table db_wup.messagelog: ~42 rows (approximately)
 /*!40000 ALTER TABLE `messagelog` DISABLE KEYS */;
@@ -63,6 +109,25 @@ INSERT INTO `messagelog` (`Id`, `SendTime`, `ReceiveTime`, `StatusCode`, `Status
 	(67, '2021-11-22 20:54:53', NULL, 300, NULL, '+639182323232', NULL, 'You have an Event notification from WUP-Maria Aurora. <br>Title: New Event 23 <br>What: GHAPSDPA <br>When: 2022-01-06T20:54 <br>Where: Garte', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `messagelog` ENABLE KEYS */;
 
+-- Dumping structure for table db_wup.messageout
+CREATE TABLE IF NOT EXISTS `messageout` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `MessageTo` varchar(80) DEFAULT NULL,
+  `MessageFrom` varchar(80) DEFAULT NULL,
+  `MessageText` text,
+  `MessageType` varchar(80) DEFAULT NULL,
+  `Gateway` varchar(80) DEFAULT NULL,
+  `UserId` varchar(80) DEFAULT NULL,
+  `UserInfo` text,
+  `Priority` int(11) DEFAULT NULL,
+  `Scheduled` datetime DEFAULT NULL,
+  `ValidityPeriod` int(11) DEFAULT NULL,
+  `IsSent` tinyint(1) NOT NULL DEFAULT '0',
+  `IsRead` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`Id`),
+  KEY `IDX_IsRead` (`IsRead`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+
 -- Dumping data for table db_wup.messageout: ~9 rows (approximately)
 /*!40000 ALTER TABLE `messageout` DISABLE KEYS */;
 INSERT INTO `messageout` (`Id`, `MessageTo`, `MessageFrom`, `MessageText`, `MessageType`, `Gateway`, `UserId`, `UserInfo`, `Priority`, `Scheduled`, `ValidityPeriod`, `IsSent`, `IsRead`) VALUES
@@ -77,6 +142,17 @@ INSERT INTO `messageout` (`Id`, `MessageTo`, `MessageFrom`, `MessageText`, `Mess
 	(9, '+639182323232', 'Admin', 'You have an Event notification from WUP-Maria Aurora. <br>Title: New Event 2555 <br>What: wawawawawa <br>When: 2022-01-12T20:48 <br>Where: Garte Aw', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0);
 /*!40000 ALTER TABLE `messageout` ENABLE KEYS */;
 
+-- Dumping structure for table db_wup.tblannouncement
+CREATE TABLE IF NOT EXISTS `tblannouncement` (
+  `ANNOUNCEMENTID` int(11) NOT NULL AUTO_INCREMENT,
+  `ANNOUNCEMENT_TEXT` text NOT NULL,
+  `ANNOUNCEMENT_WHAT` text NOT NULL,
+  `ANNOUNCEMENT_WHEN` datetime NOT NULL,
+  `ANNOUNCEMENT_WHERE` varchar(90) NOT NULL,
+  `DATEPOSTED` datetime NOT NULL,
+  PRIMARY KEY (`ANNOUNCEMENTID`)
+) ENGINE=InnoDB AUTO_INCREMENT=202100063 DEFAULT CHARSET=latin1;
+
 -- Dumping data for table db_wup.tblannouncement: ~4 rows (approximately)
 /*!40000 ALTER TABLE `tblannouncement` DISABLE KEYS */;
 INSERT INTO `tblannouncement` (`ANNOUNCEMENTID`, `ANNOUNCEMENT_TEXT`, `ANNOUNCEMENT_WHAT`, `ANNOUNCEMENT_WHEN`, `ANNOUNCEMENT_WHERE`, `DATEPOSTED`) VALUES
@@ -86,12 +162,35 @@ INSERT INTO `tblannouncement` (`ANNOUNCEMENTID`, `ANNOUNCEMENT_TEXT`, `ANNOUNCEM
 	(202100062, 'General Meeting for Parents and Friends', 'Wala ahahahsdhahsd', '2021-12-09 00:18:00', 'WUP AURORA Campus', '2021-12-11 16:18:19');
 /*!40000 ALTER TABLE `tblannouncement` ENABLE KEYS */;
 
+-- Dumping structure for table db_wup.tblautonumbers
+CREATE TABLE IF NOT EXISTS `tblautonumbers` (
+  `AUTOID` tinyint(4) NOT NULL,
+  `AUTOSTART` varchar(30) NOT NULL,
+  `AUTOEND` varchar(50) NOT NULL,
+  `AUTOINC` int(11) NOT NULL,
+  `AUTOKEY` varchar(30) NOT NULL,
+  PRIMARY KEY (`AUTOID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 -- Dumping data for table db_wup.tblautonumbers: ~2 rows (approximately)
 /*!40000 ALTER TABLE `tblautonumbers` DISABLE KEYS */;
 INSERT INTO `tblautonumbers` (`AUTOID`, `AUTOSTART`, `AUTOEND`, `AUTOINC`, `AUTOKEY`) VALUES
 	(10, '000', '27', 1, 'bookingid'),
 	(12, '000', '65', 1, 'BLOGID');
 /*!40000 ALTER TABLE `tblautonumbers` ENABLE KEYS */;
+
+-- Dumping structure for table db_wup.tblblogpost
+CREATE TABLE IF NOT EXISTS `tblblogpost` (
+  `BLOGID` int(11) NOT NULL AUTO_INCREMENT,
+  `BLOGS` varchar(50) NOT NULL DEFAULT '',
+  `BLOG_WHAT` text NOT NULL,
+  `BLOG_WHEN` varchar(90) NOT NULL,
+  `BLOG_WHERE` varchar(90) NOT NULL,
+  `DATEPOSTED` datetime NOT NULL,
+  `CATEGORY` varchar(90) NOT NULL,
+  `AUTHOR` varchar(90) NOT NULL,
+  PRIMARY KEY (`BLOGID`)
+) ENGINE=InnoDB AUTO_INCREMENT=202200065 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table db_wup.tblblogpost: ~9 rows (approximately)
 /*!40000 ALTER TABLE `tblblogpost` DISABLE KEYS */;
@@ -107,6 +206,14 @@ INSERT INTO `tblblogpost` (`BLOGID`, `BLOGS`, `BLOG_WHAT`, `BLOG_WHEN`, `BLOG_WH
 	(202200064, 'New Event 2555', 'wawawawawa', '2022-01-12T20:48', 'Garte Aw', '2022-01-03 20:49:02', 'EVENT', 'Awit1');
 /*!40000 ALTER TABLE `tblblogpost` ENABLE KEYS */;
 
+-- Dumping structure for table db_wup.tblcourse
+CREATE TABLE IF NOT EXISTS `tblcourse` (
+  `COURSEID` int(11) NOT NULL AUTO_INCREMENT,
+  `COURSE` varchar(60) NOT NULL,
+  `DESCRIPTION` varchar(60) NOT NULL,
+  PRIMARY KEY (`COURSEID`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
 -- Dumping data for table db_wup.tblcourse: ~5 rows (approximately)
 /*!40000 ALTER TABLE `tblcourse` DISABLE KEYS */;
 INSERT INTO `tblcourse` (`COURSEID`, `COURSE`, `DESCRIPTION`) VALUES
@@ -117,6 +224,14 @@ INSERT INTO `tblcourse` (`COURSEID`, `COURSE`, `DESCRIPTION`) VALUES
 	(8, 'ABM', 'Accounting and Business Management');
 /*!40000 ALTER TABLE `tblcourse` ENABLE KEYS */;
 
+-- Dumping structure for table db_wup.tbldepartment
+CREATE TABLE IF NOT EXISTS `tbldepartment` (
+  `DEPARTMENTID` int(11) NOT NULL AUTO_INCREMENT,
+  `DEPARTMENT` varchar(90) NOT NULL,
+  `DESCRIPTION` varchar(90) NOT NULL,
+  PRIMARY KEY (`DEPARTMENTID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
 -- Dumping data for table db_wup.tbldepartment: ~3 rows (approximately)
 /*!40000 ALTER TABLE `tbldepartment` DISABLE KEYS */;
 INSERT INTO `tbldepartment` (`DEPARTMENTID`, `DEPARTMENT`, `DESCRIPTION`) VALUES
@@ -124,6 +239,17 @@ INSERT INTO `tbldepartment` (`DEPARTMENTID`, `DEPARTMENT`, `DESCRIPTION`) VALUES
 	(4, 'SHS ', 'SENIOR HIGH SCHOOL DEPARTMENT'),
 	(5, 'JHS', 'JUNIOR HIGH SCHOOL DEPARTMENT');
 /*!40000 ALTER TABLE `tbldepartment` ENABLE KEYS */;
+
+-- Dumping structure for table db_wup.tblevent
+CREATE TABLE IF NOT EXISTS `tblevent` (
+  `EVENTID` int(11) NOT NULL AUTO_INCREMENT,
+  `EVENT_TEXT` text NOT NULL,
+  `EVENT_WHAT` text NOT NULL,
+  `EVENT_WHEN` datetime NOT NULL,
+  `EVENT_WHERE` varchar(90) NOT NULL,
+  `DATEPOSTED` datetime NOT NULL,
+  PRIMARY KEY (`EVENTID`)
+) ENGINE=InnoDB AUTO_INCREMENT=202200065 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table db_wup.tblevent: ~5 rows (approximately)
 /*!40000 ALTER TABLE `tblevent` DISABLE KEYS */;
@@ -135,9 +261,29 @@ INSERT INTO `tblevent` (`EVENTID`, `EVENT_TEXT`, `EVENT_WHAT`, `EVENT_WHEN`, `EV
 	(202200064, 'New Event 2555', 'wawawawawa', '2022-01-12 20:48:00', 'Garte Aw', '2022-01-03 12:49:02');
 /*!40000 ALTER TABLE `tblevent` ENABLE KEYS */;
 
+-- Dumping structure for table db_wup.tblfaculty
+CREATE TABLE IF NOT EXISTS `tblfaculty` (
+  `INCID` int(11) NOT NULL AUTO_INCREMENT,
+  `IDNO` varchar(90) NOT NULL,
+  `FNAME` varchar(90) NOT NULL,
+  `MNAME` varchar(90) NOT NULL,
+  `LNAME` varchar(90) NOT NULL,
+  `PHONE` varchar(30) NOT NULL,
+  PRIMARY KEY (`INCID`),
+  UNIQUE KEY `IDNO` (`IDNO`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+
 -- Dumping data for table db_wup.tblfaculty: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tblfaculty` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tblfaculty` ENABLE KEYS */;
+
+-- Dumping structure for table db_wup.tblstrand
+CREATE TABLE IF NOT EXISTS `tblstrand` (
+  `STRANDID` int(11) NOT NULL AUTO_INCREMENT,
+  `STRAND` varchar(60) DEFAULT NULL,
+  `DESCRIPTION1` varchar(60) DEFAULT NULL,
+  PRIMARY KEY (`STRANDID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table db_wup.tblstrand: ~4 rows (approximately)
 /*!40000 ALTER TABLE `tblstrand` DISABLE KEYS */;
@@ -148,12 +294,40 @@ INSERT INTO `tblstrand` (`STRANDID`, `STRAND`, `DESCRIPTION1`) VALUES
 	(4, 'GAS', 'GAS');
 /*!40000 ALTER TABLE `tblstrand` ENABLE KEYS */;
 
+-- Dumping structure for table db_wup.tblstudent
+CREATE TABLE IF NOT EXISTS `tblstudent` (
+  `INCID` int(11) NOT NULL AUTO_INCREMENT,
+  `IDNO` varchar(90) NOT NULL,
+  `FNAME` varchar(30) NOT NULL,
+  `MNAME` varchar(90) NOT NULL,
+  `LNAME` varchar(90) NOT NULL,
+  `PHONE` varchar(30) NOT NULL,
+  `DEPARTMENT` varchar(90) NOT NULL,
+  `YLVL` varchar(50) NOT NULL,
+  `SEC_BLOCK` varchar(90) NOT NULL,
+  `COURSE` varchar(90) NOT NULL,
+  `USERNAME` varchar(90) NOT NULL,
+  `STUDPASS` varchar(90) NOT NULL,
+  `PROIMAGE` text,
+  `FORGOTPASSAUTH` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`INCID`),
+  UNIQUE KEY `STUDID` (`IDNO`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+
 -- Dumping data for table db_wup.tblstudent: ~2 rows (approximately)
 /*!40000 ALTER TABLE `tblstudent` DISABLE KEYS */;
 INSERT INTO `tblstudent` (`INCID`, `IDNO`, `FNAME`, `MNAME`, `LNAME`, `PHONE`, `DEPARTMENT`, `YLVL`, `SEC_BLOCK`, `COURSE`, `USERNAME`, `STUDPASS`, `PROIMAGE`, `FORGOTPASSAUTH`) VALUES
-	(22, '6', 'Super Admin', '', '', '', '', '', '', '', 'SU', '3fda92826b531fc6ebf7e1f511e9605dd159e0e2', NULL, NULL),
 	(23, '180422332', 'Minaqu', 'Wara', 'Lastimosa', '09182323232', '3', '3rd Year', 'Block 3', '4', '2J#zE*fDiQSx', 'iCpc#T', NULL, NULL);
 /*!40000 ALTER TABLE `tblstudent` ENABLE KEYS */;
+
+-- Dumping structure for table db_wup.tblstudentnotif
+CREATE TABLE IF NOT EXISTS `tblstudentnotif` (
+  `NotificationID` int(11) NOT NULL AUTO_INCREMENT,
+  `IDNO` varchar(90) NOT NULL,
+  `BLOGID` varchar(90) NOT NULL,
+  `TYPE` varchar(90) NOT NULL,
+  PRIMARY KEY (`NotificationID`)
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table db_wup.tblstudentnotif: ~22 rows (approximately)
 /*!40000 ALTER TABLE `tblstudentnotif` DISABLE KEYS */;
@@ -182,11 +356,21 @@ INSERT INTO `tblstudentnotif` (`NotificationID`, `IDNO`, `BLOGID`, `TYPE`) VALUE
 	(47, '180422332', '202200064', 'Event');
 /*!40000 ALTER TABLE `tblstudentnotif` ENABLE KEYS */;
 
+-- Dumping structure for table db_wup.tblusers
+CREATE TABLE IF NOT EXISTS `tblusers` (
+  `USERID` int(11) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(90) NOT NULL,
+  `UEMAIL` varchar(90) NOT NULL,
+  `PASS` varchar(90) NOT NULL,
+  `TYPE` varchar(30) NOT NULL,
+  PRIMARY KEY (`USERID`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
 -- Dumping data for table db_wup.tblusers: ~2 rows (approximately)
 /*!40000 ALTER TABLE `tblusers` DISABLE KEYS */;
 INSERT INTO `tblusers` (`USERID`, `NAME`, `UEMAIL`, `PASS`, `TYPE`) VALUES
 	(4, 'Awit1', 'admin', '94bce5f1f43a5444ad88f9ae49db68e024d53d70', 'Administrator'),
-	(5, 'Super Admin', 'SU', '3fda92826b531fc6ebf7e1f511e9605dd159e0e2', 'Administrator');
+	(6, 'Jandel', 'hahaha', '86b7b315c8a287270593fee92bbc3c395072ba2f', 'Administrator');
 /*!40000 ALTER TABLE `tblusers` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
