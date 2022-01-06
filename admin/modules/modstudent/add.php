@@ -152,7 +152,7 @@ $rndmpass = substr(str_shuffle($random_str), 0, 6);
         <div class="form-group">
           <label  style="color: black;" for="UID">Password</label>&nbsp;  
           <input type="password" class="form-control input-sm" name="STUDPASS" id="STUDPASS" value="<?php echo $rndmpass ?>" required>
-          <input type="checkbox" onclick="myFunction()">Show Password
+          <input type="checkbox" onclick="myFunction()"> &nbsp;Show Password
         </div>
       </div>
     </div>

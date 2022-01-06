@@ -22,21 +22,28 @@ require 'PHPMailer/SMTP.php';
       $mail->Host = 'smtp.gmail.com';
       $mail->SMTPAuth = true;
       // Gmail ID which you want to use as SMTP server
-      $mail->Username = 'jandelmarsh27@gmail.com';
+      $mail->Username = 'wupeannouncement@gmail.com';
       // Gmail Password
-      $mail->Password = 'Jaonforever13@';
+      $mail->Password = 'Jaonforever13';
       $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
       $mail->Port = 587;
 
       // Email ID from which you want to send the email
-      $mail->setFrom('leesingod22@gmail.com','WUP');
+      $mail->setFrom('jandelmarsh27@gmail.com','WUP Aurora ');
       // Recipient Email ID where you want to receive emails
-      $mail->addAddress('leesingod22@gmail.com');
+      $mail->addAddress('wupeannouncement@gmail.com');
 
       $mail->isHTML(true);
       $mail->Subject = $subject;
       $mail->Body = "
-      <h3>Name : $name <br> From Email : $email <br>Message : $message</h3>";
+      <h3>Name : $name </h3> 
+      <h4>
+      <br>Message : $message
+      <br>
+      <br> From Email : $email
+
+      </h4>";
+      
 
       $mail->send();
       $output = '<div class="alert alert-success">

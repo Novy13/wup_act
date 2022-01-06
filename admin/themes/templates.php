@@ -121,7 +121,7 @@
                   <?php echo  $_SESSION['NAME'];?>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="<?php echo web_root;?>admin/modules/user/index.php?view=edit&id=<?php echo $_SESSION['USERID']; ?>">Profile</a> 
+                  <a class="dropdown-item" href="<?php echo web_root;?>admin/modules/user/index.php?view=edit&id=<?php echo $_SESSION['USERID']; ?>">Change Password</a> 
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="<?php echo web_root;?>admin/logout.php">Log out</a>
                 </div>

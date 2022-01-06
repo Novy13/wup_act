@@ -48,7 +48,6 @@ switch ($action) {
 			$user->PASS			=sha1($_POST['user_pass']);
 			$user->TYPE			= "Administrator" ;
 			$user->create();
-			$id =  $mydb->insert_id();
 
 			message("New [". $_POST['user_name'] ."] created successfully!", "success");
 			redirect("index.php");

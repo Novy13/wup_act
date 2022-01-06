@@ -46,7 +46,7 @@
 				  		// echo '<td>' . $result->ANNOUNCEMENTID.'</a></td>';
 				  		echo '<td>'. $result->ANNOUNCEMENT_TEXT.'</td>';
 				  		echo '<td class="tds">'. $result->ANNOUNCEMENT_WHAT.'</td>';
-				  		echo '<td>'. $result->ANNOUNCEMENT_WHEN.'</td>';
+				  		echo '<td>'. dateFormat($result->ANNOUNCEMENT_WHEN,"m-d-y  h:i a").'</td>';
 				  		echo '<td>'. $result->ANNOUNCEMENT_WHERE.'</td>';
 
 				  	  

@@ -68,8 +68,7 @@ http://www.bootstrapzen.com/item/135/simple-login-form-logo/
   }
 
 body {
-background: rgb(177,181,175);
-background: linear-gradient(90deg, rgba(177,181,175,1) 6%, rgba(34,134,29,1) 66%, rgba(31,120,27,1) 100%);
+background-image: url(../images/bg3.jpg) ;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -82,9 +81,11 @@ background: linear-gradient(90deg, rgba(177,181,175,1) 6%, rgba(34,134,29,1) 66%
 
 form[role=login] {
   color: s;
-  background:#F2F2F2;
+  opacity: 1;
   padding: 26px;
-  border-radius: 10px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 2px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
 }
@@ -97,6 +98,9 @@ form[role=login] {
   form[role=login] input,
   form[role=login] button {
     font-size: 18px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 2px;
     margin: 16px 0;
   }
   form[role=login] > div {
@@ -111,7 +115,15 @@ form[role=login] {
   .form-links a {
     color: #fff;
   }
-
+ 
+.btn-primary-outline {
+  background-color: transparent;
+  border-color: #ccc;
+  color: white;
+}
+.btn-primary-outline:hover {
+  color: white;
+}
 </style>
 
 <body  >
@@ -128,7 +140,7 @@ form[role=login] {
         <form method="post" action="" role="login">
           <!-- <img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" /> -->
            <img src="../img/wup1.png" height="50px" class="img-responsive" alt="" />
-           <div style="min-height: 80px;"><h3>Admin Login</h3></div>
+           <div style="min-height: 80px; color: white;"><h3>Admin Login</h3></div>
 
           <input type="text" name="user_email" placeholder="Username" required class="form-control input-lg"  />
 
@@ -138,7 +150,7 @@ form[role=login] {
           <div class="pwstrength_viewport_progress"></div>
 
 
-          <button type="submit" name="btnLogin" class="btn btn-lg btn-primary btn-block">Sign in</button>
+          <button type="submit" name="btnLogin" class="btn  btn btn-primary-outline btn-lg btn-block">Sign in</button>
           <!-- <div>
             <a href="#">Create account</a> or <a href="#">reset password</a>
           </div>

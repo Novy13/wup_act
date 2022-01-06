@@ -107,9 +107,9 @@ class User {
 		$sql .= ") VALUES ('";
 		$sql .= join("', '", array_values($attributes));
 		$sql .= "')";
-	   $mydb->setQuery($sql);
+	 
 	
-	 if($mydb->executeQuery()) {
+	 if($mydb->setQuery($sql)) {
 	    $this->id = $mydb->insert_id();
 	    return true;
 	  } else {
@@ -117,7 +117,7 @@ class User {
 	  }
 	}
 
-	public function update($id=0) {
+	public function update($id="") {
 	  global $mydb;
 		$attributes = $this->sanitized_attributes();
 		$attribute_pairs = array();
@@ -126,9 +126,9 @@ class User {
 		}
 		$sql = "UPDATE ".self::$tblname." SET ";
 		$sql .= join(", ", $attribute_pairs);
-		$sql .= " WHERE USERID=". $id;
-	  $mydb->setQuery($sql);
-	 	if(!$mydb->executeQuery()) return false; 	
+		$sql .= " WHERE USERID='". $id."'";
+	  
+	 	if(!$mydb->setQuery($sql)) return false; 	
 		
 	}
 

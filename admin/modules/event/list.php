@@ -41,7 +41,7 @@
 				  		// echo '<td>' . $result->EVENTID.'</a></td>';
 				  		echo '<td>'. $result->EVENT_TEXT.'</td>';
 				  		echo '<td>'. $result->EVENT_WHAT.'</td>';
-				  		echo '<td>'. $result->EVENT_WHEN.'</td>';
+				  		echo '<td>'. dateFormat($result->EVENT_WHEN,"m-d-y  h:i a").'</td>';
 				  		echo '<td>'. $result->EVENT_WHERE.'</td>';
 
 				  	  
